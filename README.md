@@ -2,7 +2,7 @@
 
 An interactive 3D anatomy explorer built with React, Three.js, and shadcn/ui. Take the BodyParts3D adult male reference apart into **2,234 individually selectable meshes**, explore **15 anatomical systems**, and search **3,432 named concepts**.
 
-**[Explore the live demo](https://human-atlas-seven.vercel.app)**
+**[Explore the live demo](https://human-atlas-seven.vercel.app)** · Production (EASI): https://human-atlas.pivotventures.tech
 
 ## Explore
 
@@ -55,7 +55,20 @@ The repository includes browser-ready geometry. Rebuilding it is optional: obtai
 
 ## Deploy
 
-Import this repository into Vercel as a Vite project. The included `vercel.json` configures `npm ci`, `npm run build`, and the `dist` output directory. It can also be served by a static host.
+### EASI / BASI droplet
+
+The production static build is hosted on the EASI/BASI droplet and served at https://human-atlas.pivotventures.tech (`file_server` from `/opt/basi/human-atlas-static`, same pattern as meetings-static). Exact build and rsync commands are in [DEPLOY-EASI.md](DEPLOY-EASI.md).
+
+```bash
+npm ci && npm run build
+rsync -az --delete dist/ root@<BASI_DROPLET>:/opt/basi/human-atlas-static/
+```
+
+Caddy hostname and iframe-module wiring belong in Pivot-Ventures/rag-platform.
+
+### Vercel and other static hosts
+
+Import this repository into Vercel as a Vite project. The included `vercel.json` configures `npm ci`, `npm run build`, and the `dist` output directory. Any static host that serves `dist/` at the site root also works.
 
 ## License
 
