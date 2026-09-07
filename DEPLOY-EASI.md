@@ -43,4 +43,4 @@ After rag-platform points Caddy at this directory, the site is available at http
 - Catalogue and mesh paths are origin-root (`/models/atlas.json`, `/models/body-*.bin`). Serve this build at the host root, not a URL subpath.
 - `.bin.gz` files are fetched by the app and decoded in the browser when the payload is still gzip. Serve them as regular static files.
 - There is no client-side router: `file_server` of `index.html` at `/` is enough.
-- Vercel remains an optional preview host via `vercel.json`. The upstream live reference is https://human-atlas-seven.vercel.app.
+- Vercel remains an optional preview host via `vercel.json`.
